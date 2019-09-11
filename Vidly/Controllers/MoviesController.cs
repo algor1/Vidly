@@ -26,5 +26,10 @@ namespace Vidly.Controllers
         {
             return Content($"page= {pageindex}  sorting by {sortBy}");
         }
+        [Route("movies/released/{year:regex(2015|2016)}/{month:regex(\\d{2}):range(1,12)}")]
+        public ActionResult ByReleaseDate(int year,int month)
+        {
+            return Content($"year/Month {year}/{month}");
+        }
     }
 }
