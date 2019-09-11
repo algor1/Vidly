@@ -13,10 +13,18 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             Movie movie = new Movie() { Name = "Shrek!" };
-            //return View(movie);
+            return View(movie);
             //return Content("Gghbdtn");
             //return HttpNotFound();
-            return RedirectToAction("Index", "Home", new { page = 1, Id = 111 });
+            //return RedirectToAction("Index", "Home", new { page = 1, Id = 111 });
+        }
+        public ActionResult Edit(int id)
+        {
+            return Content("id=  "+id);
+        }
+        public ActionResult Index(int pageindex = 1, string sortBy = "Name")
+        {
+            return Content($"page= {pageindex}  sorting by {sortBy}");
         }
     }
 }
