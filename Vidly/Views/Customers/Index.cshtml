@@ -1,4 +1,4 @@
-﻿@model Vidly.ViewModels.CustomersViewModel
+﻿@model IEnumerable<Vidly.Models.Customer>
 @{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,16 +7,29 @@
 
 <h2>Customers</h2>
 
-@if (Model.Customers.Count == 0)
+@if (!Model.Any())
 {
     <p>Nobody was here, yet!</p>
 }
 
 
-<ul>
-    @foreach (var customer in Model.Customers)
-    {
-        <li><a href="detail/@customer.Id ">@customer.Name</a></li>
-    }
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(customer.Name, "Details", "Customers", new { Id = customer.Id },true)
+                </td>
+            </tr>
+            <li>  </li>
+            <li><a href="detail/@customer.Id ">@customer.Name</a></li>
+        }
 
-</ul>
+      </tbody>
+    </table>
