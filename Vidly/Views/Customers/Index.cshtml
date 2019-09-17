@@ -24,11 +24,9 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(customer.Name, "Details", "Customers", new { Id = customer.Id },true)
+                    @Html.ActionLink(customer.Name, "Detail", "Customers", new { Id = customer.Id },true)
                 </td>
             </tr>
-            <li>  </li>
-            <li><a href="detail/@customer.Id ">@customer.Name</a></li>
         }
 
       </tbody>
