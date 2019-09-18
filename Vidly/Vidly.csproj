@@ -185,6 +185,14 @@
     <Compile Include="Migrations\201909181837550_ChangeCustomerNameLengthAndNullable.Designer.cs">
       <DependentUpon>201909181837550_ChangeCustomerNameLengthAndNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909181941341_AddMembershipTypeName.cs" />
+    <Compile Include="Migrations\201909181941341_AddMembershipTypeName.Designer.cs">
+      <DependentUpon>201909181941341_AddMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909181942044_UpdateMembershipTypeName.cs" />
+    <Compile Include="Migrations\201909181942044_UpdateMembershipTypeName.Designer.cs">
+      <DependentUpon>201909181942044_UpdateMembershipTypeName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\MyDBContext.cs" />
@@ -308,6 +316,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909181837550_ChangeCustomerNameLengthAndNullable.resx">
       <DependentUpon>201909181837550_ChangeCustomerNameLengthAndNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909181941341_AddMembershipTypeName.resx">
+      <DependentUpon>201909181941341_AddMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909181942044_UpdateMembershipTypeName.resx">
+      <DependentUpon>201909181942044_UpdateMembershipTypeName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
