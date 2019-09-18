@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201909181456000_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201909181456000_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909181837550_ChangeCustomerNameLengthAndNullable.cs" />
+    <Compile Include="Migrations\201909181837550_ChangeCustomerNameLengthAndNullable.Designer.cs">
+      <DependentUpon>201909181837550_ChangeCustomerNameLengthAndNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\MyDBContext.cs" />
@@ -301,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909181456000_PopulateMembershipTypes.resx">
       <DependentUpon>201909181456000_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909181837550_ChangeCustomerNameLengthAndNullable.resx">
+      <DependentUpon>201909181837550_ChangeCustomerNameLengthAndNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
