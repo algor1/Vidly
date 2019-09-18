@@ -33,7 +33,7 @@ namespace Vidly.Controllers
         public ActionResult Detail(int id)
         {
             
-            Customer customer = _context.Customers.Single(c => c.Id == id);
+            Customer customer = _context.Customers.Include(c =>c.MembershipType).Single(c => c.Id == id);
 
             return View(customer);
 
