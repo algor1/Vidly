@@ -11,6 +11,7 @@
     <p>No movies here, yet!</p>
 }
 
+<a href=" @Html.ActionLink("New movie", "Edit", "Movies")"
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -23,7 +24,7 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(movie.Name, "Detail", "Movies", new { Id = movie.Id }, true)
+                    @Html.ActionLink(movie.Name, "Edit", "Movies", new { Id = movie.Id }, true)
                 </td>
                 <td>
                     @movie.Genre.Name
