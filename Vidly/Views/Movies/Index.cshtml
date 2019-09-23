@@ -11,7 +11,8 @@
     <p>No movies here, yet!</p>
 }
 
-<a href=" @Html.ActionLink("New movie", "Edit", "Movies")"
+@Html.ActionLink("New movie", "New", "Movies",new { @class="btn btn-secondary" })
+<p></p>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>

@@ -1,10 +1,11 @@
 ﻿@model Vidly.ViewModels.MovieFormViewModel
+
 @{
-    ViewBag.Title = "Movie Edit";
+    string title = Model.Movie!= null? "Edit Movie" : "New Movie";
+    ViewBag.Title = title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Movie</h2>
+<h2>@title</h2>
 
 @using (Html.BeginForm("Save", "Movies"))
 {
@@ -26,5 +27,6 @@
     @Html.LabelFor(m => Model.Movie.NumberInStock)
     @Html.TextBoxFor(m => Model.Movie.NumberInStock, new { @class = "form-control" })
 </div>
+    @Html.HiddenFor(m=>Model.Movie.Id)
 <button type="submit" class="btn btn-primary">Save</button>
 }

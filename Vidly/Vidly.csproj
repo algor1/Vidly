@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201909191354360_AddedPropertysInMovies.Designer.cs">
       <DependentUpon>201909191354360_AddedPropertysInMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909231845587_addedRequiredAtributeToMvies.cs" />
+    <Compile Include="Migrations\201909231845587_addedRequiredAtributeToMvies.Designer.cs">
+      <DependentUpon>201909231845587_addedRequiredAtributeToMvies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909191354360_AddedPropertysInMovies.resx">
       <DependentUpon>201909191354360_AddedPropertysInMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909231845587_addedRequiredAtributeToMvies.resx">
+      <DependentUpon>201909231845587_addedRequiredAtributeToMvies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
