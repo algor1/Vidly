@@ -15,5 +15,8 @@ namespace Vidly.Models
         [StringLength(100)]
         public string Name { get; set; }
 
+        public const byte Unknown = 0;
+        public const byte PayAsYouGo = 1;
+
     }
 }
