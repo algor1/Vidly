@@ -43,6 +43,7 @@ namespace Vidly.Controllers
             MovieFormViewModel viewModel = new MovieFormViewModel();
             
             viewModel.Genres = _context.Genres.ToList();
+            viewModel.Movie = new Movie();
 
             return View("MovieForm", viewModel);
         }
