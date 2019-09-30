@@ -28,11 +28,11 @@ namespace Vidly.Controllers
         
         public ActionResult Edit(int id)
         {
-            MovieFormViewModel viewModel = new MovieFormViewModel();
-            viewModel.Movie = _context.Movies.SingleOrDefault(m => m.Id == id);
-
-            if (viewModel == null)
+            Movie movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movie == null)
                 return HttpNotFound();
+
+            MovieFormViewModel viewModel = new MovieFormViewModel(movie);
 
             viewModel.Genres = _context.Genres.ToList();
             return View("MovieForm", viewModel);
@@ -43,8 +43,7 @@ namespace Vidly.Controllers
             MovieFormViewModel viewModel = new MovieFormViewModel();
             
             viewModel.Genres = _context.Genres.ToList();
-            viewModel.Movie = new Movie();
-
+            
             return View("MovieForm", viewModel);
         }
 

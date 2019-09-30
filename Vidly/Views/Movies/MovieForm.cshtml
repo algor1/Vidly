@@ -1,43 +1,45 @@
 ﻿@model Vidly.ViewModels.MovieFormViewModel
 
 @{
-    string title = Model.Movie != null ? "Edit Movie" : "New Movie";
-    ViewBag.Title = title;
+    
+    ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@title</h2>
+<h2>@Model.Title</h2>
 
 @using (Html.BeginForm("Save", "Movies"))
 {
 <div class="form-group">
-        @Html.LabelFor(m => Model.Movie.Name)
-        @Html.TextBoxFor(m => Model.Movie.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => Model.Movie.Name)
+        @Html.LabelFor(m => Model.Name)
+        @Html.TextBoxFor(m => Model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => Model.Name)
 </div>
     <div class="form-group">
-        @Html.LabelFor(m => Model.Movie.ReleaseDate)
-        @Html.TextBoxFor(m => Model.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => Model.Movie.ReleaseDate)
+        @Html.LabelFor(m => Model.ReleaseDate)
+        @Html.TextBoxFor(m => Model.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => Model.ReleaseDate)
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => Model.Movie.GenreId)
-        @Html.DropDownListFor(m => Model.Movie.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => Model.Movie.GenreId)
+        @Html.LabelFor(m => Model.GenreId)
+        @Html.DropDownListFor(m => Model.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => Model.GenreId)
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => Model.Movie.NumberInStock)
-        @Html.TextBoxFor(m => Model.Movie.NumberInStock, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => Model.Movie.NumberInStock)
+        @Html.LabelFor(m => Model.NumberInStock)
+        @Html.TextBoxFor(m => Model.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => Model.NumberInStock)
 
     </div>
-    @Html.HiddenFor(m => Model.Movie.Id)
+    @Html.HiddenFor(m => Model.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 
+    
     @section scripts
     {
         @Scripts.Render("~/bundles/jqueryval")
     }
+     
 }
