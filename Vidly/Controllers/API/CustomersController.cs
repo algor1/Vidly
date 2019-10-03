@@ -23,9 +23,10 @@ namespace Vidly.Controllers.API
             base.Dispose(disposing);
         }
 
-        public IEnumerable<CustomerDto> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
+            IEnumerable < CustomerDto > customers= _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
+            return Ok(customers);
         }
 
         public IHttpActionResult GetCustomer(int id)
@@ -56,10 +57,10 @@ namespace Vidly.Controllers.API
         public void PutCustomer(int id,CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                BadRequest();
             Customer customerInDb= _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customerInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                NotFound();
             Mapper.Map<CustomerDto, Customer>(customerDto, customerInDb);
             
             _context.SaveChanges();
