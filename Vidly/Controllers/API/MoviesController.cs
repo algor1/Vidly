@@ -63,6 +63,16 @@ namespace Vidly.Controllers.API
             
             return Ok();
         }
+        public IHttpActionResult DeleteMovie(int id)
+        {
+            Movie movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movieInDb == null)
+                return NotFound();
+            _context.Movies.Remove(movieInDb);
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 
 }
