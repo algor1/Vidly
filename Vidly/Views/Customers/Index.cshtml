@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Vidly.Models.Customer>
-@{
+﻿@{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,10 +6,6 @@
 
 <h2>Customers</h2>
 
-@if (!Model.Any())
-{
-    <p>Nobody was here, yet!</p>
-}
 
 
 <table id="customers" class="table table-bordered table-hover">
@@ -23,23 +18,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var customer in Model)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(customer.Name, "Edit", "Customers", new { Id = customer.Id }, true)
-                </td>
-                <td>
-                    @customer.MembershipType.Name
-                </td>
-                <td>
-                    @customer.MembershipType.DiscountRate%
-                </td>
-                <td>
-                    <button data-customer-id="@customer.Id" class="btn btn-link js-delete">Delete</button>
-                </td>
-            </tr>
-        }
 
     </tbody>
 </table>
@@ -48,7 +26,30 @@
     <script>
         $(document).ready(function () {
 
-            $("#customers").Datatable();
+            $("#customers").Datatable({
+                ajax:{
+                    url: "/api/customers",
+                    dataSrc:""
+                },
+                columns:[
+                    {
+                        data:"name",
+                        render: function(data,type,customer){
+                        return "<a href='/customer/edit/"+ customer.id+ "'>"+"customer.name"+ "</a>"; 
+                    },
+                    {
+                        data:"name"
+                    },
+                    {
+                        data: "id",
+                        render function(data){
+                            return "<button class= 'btn btn-link js-delete' data-customer-id=" +data+">delete</button>"
+                        }
+
+                    }
+                }]
+            });
+
 
             $("#customers").on("click", ".js-delete", function ()
             {
