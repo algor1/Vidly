@@ -13,7 +13,6 @@
         <tr>
             <th>Customer</th>
             <th>Membership Type</th>
-            <th>Discount Rate</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -26,7 +25,7 @@
     <script>
         $(document).ready(function () {
 
-            $("#customers").Datatable({
+            var table = $("#customers").DataTable({
                 ajax:{
                     url: "/api/customers",
                     dataSrc:""
@@ -34,21 +33,23 @@
                 columns:[
                     {
                         data:"name",
-                        render: function(data,type,customer){
-                        return "<a href='/customer/edit/"+ customer.id+ "'>"+"customer.name"+ "</a>"; 
+                        render: function (data, type, customer) {
+                            return "<a href='/Customers/edit/" + customer.id + "'>" + customer.name + "</a>"
+                        }
                     },
                     {
-                        data:"membersipType.name"
+                        data:"membershipType.name"
                     },
                     {
                         data: "id",
-                        render function(data){
+                        render: function(data){
                             return "<button class= 'btn btn-link js-delete' data-customer-id=" +data+">delete</button>"
                         }
 
                     }
-                }]
+                ]
             });
+            $(table.table().container()).removeClass('form-inline');
 
 
             $("#customers").on("click", ".js-delete", function ()

@@ -23,11 +23,11 @@ namespace Vidly
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/bootbox.js",
                       "~/Scripts/datatables/jquery.datatables.js",
-                      "~/Scripts/datatables/datatables.bootstrap.js"));
+                      "~/Scripts/datatables/datatables.bootstrap4.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
-                      "~/Content/datatables/css/datatables.bootstrap.css,
+                      "~/Content/datatables/css/datatables.bootstrap4.css",
                       "~/Content/site.css"
                       ));
         }
